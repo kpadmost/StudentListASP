@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model StudentListASP.Models.StudentsViewModel
+
+@Html.Partial("Filter", Model.Filter)
+<table>
+
+    @foreach (var s in Model.StudentList)
+{
+    <tr>
+        <td>
+            @Html.Partial("StudentItemButton", new ViewDataDictionary { { "student", s } })
+        </td>
+    </tr>
+
+}
+
+</table>
+@Html.Partial("StudentEditPartial", Model.SelectedStudent)        
+

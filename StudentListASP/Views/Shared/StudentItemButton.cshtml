@@ -1,0 +1,8 @@
+﻿@{
+    Student s = (Student)ViewData["student"];
+}
+
+@using (Html.BeginForm("Select", "List", FormMethod.Post))
+{
+    <button type="submit" value="@s.IDStudent" name="button" class="studButton" > @s </button>
+}

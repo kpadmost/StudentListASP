@@ -1,0 +1,31 @@
+﻿@model StudentListASP.Models.GroupsViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edycja listy grup</h2>
+
+@using (Html.BeginForm("GroupEdit", "List", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <table>
+        <tr>
+            <td>@Html.Label("Grupa:")</td>
+            <td>@Html.DropDownListFor(model => model.SelectedGroup.IDGroup, new SelectList(Model.groupList), "", new { @style = "width: 100%" })</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Nazwa grupy: ")</td>
+            <td>@Html.EditorFor(model => model.SelectedGroup.Name)</td>
+            <td>@Html.ValidationMessageFor(model => model.SelectedGroup.Name)</td>
+        </tr>
+        <tr>
+            <td align="center"><input type="submit" name="button" class="submit" value="Dodaj" /></td>
+            <td align="center"><input type="submit" name="button" class="submit" value="Zapisz" /></td>
+            <td align="center"><input type="submit" name="button" class="submit" value="Usun" /></td>
+        </tr>
+    </table>
+}
+

@@ -1,0 +1,35 @@
+﻿@model StudentListASP.Models.FilterViewModel
+
+@{
+    var s = new Storage();
+}
+
+@using (Html.BeginForm("Filter", "List", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.Label("Grupa: ")
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.SelectedGroup.Name, new SelectList(s.getGroups()), "", new { @style = "width: 100%" } )
+            </td>
+            <td rowspan="2" height="100%">
+                <input type="submit" name="submit" value="Filter" style="height: 100%" class="submit" />
+            </td>
+            <td rowspan="2">
+                <input type="submit" name="submit" value="Clear" style="height: 100%" class="submit" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Miasto: ")
+            </td>
+            <td>
+                @Html.TextBox("city", Model.SelectedCity)
+            </td>
+        </tr>
+
+    </table>
+}
+

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP Student List</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+   <div align="center" >
+       
+        <div class="link">
+            @Html.ActionLink("Studenci", "Index")
+        </div>
+       <div class="link">
+           @Html.ActionLink("Grupy", "Groups")
+       </div>
+           
+       
+       @RenderBody()
+   </div>
+</body>
+</html>

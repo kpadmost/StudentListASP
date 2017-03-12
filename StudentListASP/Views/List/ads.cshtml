@@ -1,0 +1,57 @@
+﻿@model IEnumerable<StudentListASP.Student>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndexNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDGroup)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndexNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthPlace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDGroup)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDStudent }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDStudent }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDStudent })
+        </td>
+    </tr>
+}
+
+</table>
